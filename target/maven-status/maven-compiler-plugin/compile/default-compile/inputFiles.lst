@@ -1,9 +1,9 @@
-C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\model\PersonRequest.java
-C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\dao\PersonDao.java
-C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\dao\FakePersonDataAccessService.java
+C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\model\MemberRequest.java
+C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\dao\MemberDao.java
+C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\dao\FakeMemberDataAccessService.java
+C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\dao\MemberDataAccessService.java
+C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\model\Member.java
 C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\datasource\PostgresDataSource.java
-C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\service\PersonService.java
-C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\dao\PersonDataAccessService.java
 C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\DemoApplication.java
-C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\api\PersonController.java
-C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\model\Person.java
+C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\service\MemberService.java
+C:\Users\wwwja\Downloads\demo\demo\src\main\java\com\example\demo\api\MemberController.java
