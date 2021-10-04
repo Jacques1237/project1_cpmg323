@@ -11,10 +11,13 @@ public class Person {
 
     @NotBlank
     private final String name;
+    private final String lastname;
 
-    public Person(@JsonProperty("id") UUID id, @JsonProperty("name")String name){
+
+    public Person(@JsonProperty("id") UUID id, @JsonProperty("name") String name, @JsonProperty("lastname") String lastname){
         this.id = id;
         this.name = name;
+        this.lastname = lastname;
     }
 
     public UUID getId() {
@@ -23,5 +26,8 @@ public class Person {
 
     public String getName() {
         return name;
+    }
+    public String getLastname() {
+        return lastname;
     }
 }

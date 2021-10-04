@@ -5,7 +5,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
-import java.sql.ResultSet;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -25,34 +24,38 @@ public class PersonDataAccessService implements PersonDao{
         String sql = "" +
                 "INSERT INTO person (" +
                 " id, " +
-                " name) " +
-                "VALUES (?, ?)";
+                " name, " +
+                " lastname) " +
+                "VALUES (?, ?, ?)";
         return jdbcTemplate.update(
                 sql,
                 id,
-                person.getName()
+                person.getName(),
+                person.getLastname()
         );
 
     }
 
     @Override
     public List<Person> selectAllPeople() {
-        final String sql = "SELECT id, name FROM person";
+        final String sql = "SELECT id, name, lastname FROM person";
         return jdbcTemplate.query(sql, (resultSet, i) -> {
            UUID id = UUID.fromString(resultSet.getString("id"));
            String name =resultSet.getString("name");
-            return new Person(id, name);
+           String lastname =resultSet.getString("lastname");
+           return new Person(id, name, lastname);
         });
     }
 
     @Override
     public Optional<Person> selectPersonById(UUID id) {
-        final String sql = "SELECT id, name FROM person WHERE id = ?";
+        final String sql = "SELECT id, name, lastname FROM person WHERE id = ?";
 
             Person person = jdbcTemplate.queryForObject(sql, new Object[]{id}, (resultSet, i) -> {
             UUID personId = UUID.fromString(resultSet.getString("id"));
             String name =resultSet.getString("name");
-            return new Person(personId, name);
+            String lastname =resultSet.getString("lastname");
+            return new Person(personId, name, lastname);
         });
 
             return Optional.ofNullable(person);

@@ -12,7 +12,7 @@ public interface PersonDao {
 
     default int insertPerson(PersonRequest person){
         UUID id = UUID.randomUUID();
-        return insertPerson(id, new Person(id, person.getName()));
+        return insertPerson(id, new Person(id, person.getName(), person.getLastname()));
     }
 
     List<Person> selectAllPeople();
