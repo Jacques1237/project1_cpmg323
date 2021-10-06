@@ -39,7 +39,7 @@ public class MemberService {
         return personDao.deletePersonById(id);
     }
 
-    public int  updatePerson(UUID id, Member newMember){
+    public int  updatePerson(UUID id, MemberRequest newMember){
         return personDao.updatePersonById(id, newMember);
     }
 }

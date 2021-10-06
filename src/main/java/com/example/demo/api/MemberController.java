@@ -44,7 +44,7 @@ public class MemberController {
     }
 
     @PutMapping(path = "{id}")
-    public void updatePerson(@PathVariable("id") UUID id, @NonNull @RequestBody Member memberToUpdate){
+    public void updatePerson(@PathVariable("id") UUID id, @NonNull @RequestBody MemberRequest memberToUpdate){
         memberService.updatePerson(id, memberToUpdate);
     }
 }

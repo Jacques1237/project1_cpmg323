@@ -1,6 +1,7 @@
 package com.example.demo.dao;
 
 import com.example.demo.model.Member;
+import com.example.demo.model.MemberRequest;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.StringUtils;
 
@@ -16,7 +17,7 @@ public class MemberDataAccessService implements MemberDao {
 
     @Override
     public int insertPerson(UUID id, Member member) {
-        DB.add(new Member(id, member.getName(), member.getLastname(), member.getTransaction_type()));
+        DB.add(new Member(id, member.getName(), member.getLastname(), member.getMiles()));
         return 1;
     }
 
@@ -43,12 +44,12 @@ public class MemberDataAccessService implements MemberDao {
     }
 
     @Override
-    public int updatePersonById(UUID id, Member update) {
+    public int updatePersonById(UUID id, MemberRequest update) {
         return selectPersonById(id)
                 .map(person -> {
                    int indexOfPersonToUpdate = DB.indexOf(person);
                    if(indexOfPersonToUpdate >= 0){
-                       DB.set(indexOfPersonToUpdate, new Member(id, update.getName(), update.getLastname(), update.getTransaction_type()));
+                       DB.set(indexOfPersonToUpdate, new Member(id, update.getName(), update.getLastname(),0));
                                return 1;
                    }
                    return 0;

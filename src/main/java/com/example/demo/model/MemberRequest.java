@@ -10,11 +10,11 @@ public class MemberRequest {
     @NotBlank
     private final String name;
     private final String lastname;
-    private final String transaction_type;
-    public MemberRequest(@JsonProperty("name") String name, @JsonProperty("lastname") String lastname,@JsonProperty("transaction_type") String transaction_type){
+
+    public MemberRequest(@JsonProperty("name") String name, @JsonProperty("lastname") String lastname){
         this.name = name;
         this.lastname = lastname;
-        this.transaction_type = transaction_type;
+
     }
 
     public String getName() {
@@ -26,8 +26,4 @@ public class MemberRequest {
         return lastname;
     }
 
-    public String getTransaction_type() {
-
-        return transaction_type;
-    }
 }

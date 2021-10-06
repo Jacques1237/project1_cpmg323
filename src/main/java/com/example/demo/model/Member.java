@@ -12,16 +12,16 @@ public class Member {
     @NotBlank
     private final String name;
     private final String lastname;
-    private final String transaction_type;
+    private final int miles;
 
 
 
 
-    public Member(@JsonProperty("id") UUID id, @JsonProperty("name") String name, @JsonProperty("lastname") String lastname, @JsonProperty("transaction_type") String transaction_type){
+    public Member(@JsonProperty("id") UUID id, @JsonProperty("name") String name, @JsonProperty("lastname") String lastname, @JsonProperty("miles") int miles){
         this.id = id;
         this.name = name;
         this.lastname = lastname;
-        this.transaction_type = transaction_type;
+        this.miles = miles;
     }
 
     public UUID getId() {
@@ -35,8 +35,8 @@ public class Member {
         return lastname;
     }
 
-    public String getTransaction_type() {
-        return transaction_type;
+    public int getMiles() {
+        return miles;
     }
 
 
