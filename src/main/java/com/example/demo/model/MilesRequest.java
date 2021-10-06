@@ -9,11 +9,13 @@ public class MilesRequest {
     @NotBlank
     private final int iMiles;
     private final UUID personID;
+    private final int subMiles;
 
 
-    public MilesRequest(@JsonProperty("personID") UUID personID, @JsonProperty("miles") int iMiles){
+    public MilesRequest(@JsonProperty("personID") UUID personID, @JsonProperty("miles") int iMiles, @JsonProperty("miles") int subMiles){
         this.iMiles = iMiles;
         this.personID = personID;
+        this.subMiles = subMiles;
 
     }
 
@@ -22,6 +24,10 @@ public class MilesRequest {
     }
     public UUID getPersonID() {
         return personID;
+    }
+
+    public int getSubMiles() {
+        return subMiles;
     }
 
 }

@@ -33,8 +33,7 @@ public class DBMemberDataAccessService implements MemberDao {
                 sql,
                 id,
                 member.getName(),
-                member.getLastname(),
-                member.getMiles()
+                member.getLastname()
         );
 
     }
@@ -47,7 +46,7 @@ public class DBMemberDataAccessService implements MemberDao {
            String name =resultSet.getString("name");
            String lastname =resultSet.getString("lastname");
            int miles =resultSet.getInt("person_miles");
-           return new Member(id, name, lastname, miles);
+           return new Member(id, name, lastname);
         });
     }
 
@@ -60,7 +59,7 @@ public class DBMemberDataAccessService implements MemberDao {
             String name =resultSet.getString("name");
             String lastname =resultSet.getString("lastname");
             int miles =resultSet.getInt("person_miles");
-            return new Member(personId, name, lastname, miles);
+            return new Member(personId, name, lastname);
         });
 
             return Optional.ofNullable(member);
@@ -76,7 +75,7 @@ public class DBMemberDataAccessService implements MemberDao {
 
     @Override
     public int updatePersonById(UUID id, MemberRequest member) {
-        final String sql = "UPDATE person SET name = ?, lastname = ? WHERE id = ?";
+        final String sql = "UPDATE person SET name = ?, lastname = ? WHERE person_id = ?";
         return jdbcTemplate.update(sql, member.getName(),member.getLastname(), id);
     }
 

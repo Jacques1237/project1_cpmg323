@@ -17,14 +17,15 @@ public class Miles {
     private final UUID personID;
 
 
-    public Miles(@JsonProperty("id") UUID id, @JsonProperty("personID") UUID personID, @JsonProperty int miles) {
+    public Miles(@JsonProperty("id") UUID id, @JsonProperty("personID") UUID personID, @JsonProperty("miles") int miles) {
         this.id = id;
         this.miles = miles;
         this.personID = personID;
         this.created_date = LocalDateTime.now();
+
     }
 
-    public Miles(@JsonProperty("id") UUID id, @JsonProperty("personID") UUID personID, @JsonProperty int miles,@JsonProperty LocalDateTime created_Date ) {
+    public Miles(@JsonProperty("id") UUID id, @JsonProperty("personID") UUID personID, @JsonProperty("miles") int miles,@JsonProperty("date") LocalDateTime created_Date ) {
         this.id = id;
         this.miles = miles;
         this.personID = personID;
@@ -39,6 +40,7 @@ public class Miles {
     public int getMiles() {
         return miles;
     }
+
 
     public LocalDateTime getCreated_date() {
         return created_date;

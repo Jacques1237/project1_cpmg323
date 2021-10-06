@@ -17,7 +17,7 @@ public class MemberDataAccessService implements MemberDao {
 
     @Override
     public int insertPerson(UUID id, Member member) {
-        DB.add(new Member(id, member.getName(), member.getLastname(), member.getMiles()));
+        DB.add(new Member(id, member.getName(), member.getLastname()));
         return 1;
     }
 
@@ -49,7 +49,7 @@ public class MemberDataAccessService implements MemberDao {
                 .map(person -> {
                    int indexOfPersonToUpdate = DB.indexOf(person);
                    if(indexOfPersonToUpdate >= 0){
-                       DB.set(indexOfPersonToUpdate, new Member(id, update.getName(), update.getLastname(),0));
+                       DB.set(indexOfPersonToUpdate, new Member(id, update.getName(), update.getLastname()));
                                return 1;
                    }
                    return 0;

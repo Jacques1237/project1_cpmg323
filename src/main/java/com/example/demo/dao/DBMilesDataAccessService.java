@@ -32,7 +32,7 @@ public class DBMilesDataAccessService implements MilesDao{
                 " person_Id, " +
                 " created_at, " +
                 " acc_miles) " +
-                "VALUES (?, ?, ?)";
+                "VALUES (?, ?, ?, ?)";
         return jdbcTemplate.update(
                 sql,
                 id,
@@ -42,6 +42,26 @@ public class DBMilesDataAccessService implements MilesDao{
         );
 
     }
+
+    @Override
+    public int subMiles(UUID id, Miles miles) {
+        return 0;
+    }
+
+    @Override
+    public Optional<Miles> selectMilesById(UUID id) {
+        final String sql = "SELECT person_Id, acc_miles, created_at FROM account_type WHERE person_Id = ?";
+
+        Miles mile = jdbcTemplate.queryForObject(sql, new Object[]{id}, (resultSet, i) -> {
+            UUID personId = UUID.fromString(resultSet.getString("person_Id"));
+            int miles =resultSet.getInt("acc_miles");
+            LocalDateTime created_Date = resultSet.getTimestamp("created_at").toLocalDateTime();
+            return new Miles(id,personId, miles, created_Date);
+        });
+
+        return Optional.ofNullable(mile);
+    }
+
 
     private RowMapper<Miles> mapMilesFromDb() {
         return (resultSet, i) -> {
@@ -66,7 +86,8 @@ public class DBMilesDataAccessService implements MilesDao{
 
         final String sql = "" +
                 "SELECT " +
-                " account_type.acc_id, person.person_id" +
+                " acc_id," +
+                " account_type.person_Id," +
                 " created_at, " +
                 " acc_miles " +
                 "FROM account_type " +
@@ -82,6 +103,8 @@ public class DBMilesDataAccessService implements MilesDao{
             return new Miles(id,personID, Miles, created_Date);
         });
     }
+
+
 }
 
 

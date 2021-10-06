@@ -12,7 +12,7 @@ public interface MemberDao {
 
     default int insertPerson(MemberRequest person){
         UUID id = UUID.randomUUID();
-        return insertPerson(id, new Member(id, person.getName(), person.getLastname(),0));
+        return insertPerson(id, new Member(id, person.getName(), person.getLastname()));
     }
 
     List<Member> selectAllPeople();

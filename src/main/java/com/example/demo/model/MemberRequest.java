@@ -11,7 +11,7 @@ public class MemberRequest {
     private final String name;
     private final String lastname;
 
-    public MemberRequest(@JsonProperty("name") String name, @JsonProperty("lastname") String lastname){
+    public MemberRequest(@JsonProperty("name") String name, @JsonProperty("lastname") String lastname) {
         this.name = name;
         this.lastname = lastname;
 
@@ -25,5 +25,7 @@ public class MemberRequest {
     public String getLastname() {
         return lastname;
     }
+
+
 
 }
