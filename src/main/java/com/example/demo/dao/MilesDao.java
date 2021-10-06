@@ -12,16 +12,10 @@ import java.util.UUID;
 public interface MilesDao {
 
     int insertMiles(UUID id, Miles miles);
-    int subMiles(UUID id, Miles miles);
 
     default int insertMiles(MilesRequest miles){
         UUID id = UUID.randomUUID();
         return insertMiles(id, new Miles(id,miles.getPersonID(), miles.getMiles()));
-    }
-
-    default int subMiles(MilesRequest miles){
-        UUID id = UUID.randomUUID();
-        return subMiles(id, new Miles(id,miles.getPersonID(), miles.getMiles()));
     }
 
     Optional<Miles> selectMilesById(UUID id);

@@ -38,11 +38,6 @@ import java.util.UUID;
         return milesDao.selectAllMiles();
     }
 
-    public int subtractMiles(MilesRequest subMiles){
-
-        return milesDao.subMiles(subMiles);
-    }
-
 }
 
 

@@ -35,10 +35,6 @@ public class AccountController {
                 .orElse(null);
     }
 
-    @GetMapping(path = "{id}")
-    public void subtractMiles(@NonNull @RequestBody MilesRequest milesToSubtract){
-        milesService.subtractMiles(milesToSubtract);
-    }
 
     @GetMapping
     public List<Miles> getAllMiles() {

@@ -19,10 +19,6 @@ public class MilesDataAccessService implements MilesDao {
         return 1;
     }
 
-    @Override
-    public int subMiles(UUID id, Miles miles) {
-        return 0;
-    }
 
     @Override
     public Optional<Miles> selectMilesById(UUID id) {

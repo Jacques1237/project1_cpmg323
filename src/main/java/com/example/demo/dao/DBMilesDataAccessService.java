@@ -43,10 +43,6 @@ public class DBMilesDataAccessService implements MilesDao{
 
     }
 
-    @Override
-    public int subMiles(UUID id, Miles miles) {
-        return 0;
-    }
 
     @Override
     public Optional<Miles> selectMilesById(UUID id) {

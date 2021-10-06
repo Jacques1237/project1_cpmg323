@@ -22,6 +22,7 @@ public class DBMemberDataAccessService implements MemberDao {
 
     @Override
     public int insertPerson(UUID id, Member member) {
+        int miles = 0;
         String sql = "" +
                 "INSERT INTO person (" +
                 " person_id, " +
@@ -33,7 +34,8 @@ public class DBMemberDataAccessService implements MemberDao {
                 sql,
                 id,
                 member.getName(),
-                member.getLastname()
+                member.getLastname(),
+                miles
         );
 
     }
