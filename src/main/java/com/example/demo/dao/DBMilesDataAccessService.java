@@ -26,22 +26,31 @@ public class DBMilesDataAccessService implements MilesDao{
 
     @Override
     public int insertMiles(UUID id, Miles miles) {
-        String sql = "" +
-                "INSERT INTO account_type (" +
+
+        String deleteQuery = " DELETE FROM account_type " +
+                " WHERE person_Id = ?";
+
+        String insertQuery = " INSERT INTO account_type (" +
                 " acc_id, " +
                 " person_Id, " +
                 " created_at, " +
                 " acc_miles) " +
                 "VALUES (?, ?, ?, ?)";
-        return jdbcTemplate.update(
-                sql,
-                id,
-                miles.getPersonID(),
-                miles.getCreated_date(),
-                miles.getMiles()
-        );
 
+        int totalMiles = miles.getMiles();
+        totalMiles = totalMiles + miles.getMiles();
+
+        int deleted = jdbcTemplate.update(deleteQuery, miles.getPersonID());
+        int inserted = jdbcTemplate.update(insertQuery, id, miles.getPersonID(), miles.getCreated_date(), totalMiles );
+
+
+        // RETURN ONE OF THEM
+        //return deleted;
+        return inserted;
     }
+
+
+
 
 
     @Override
